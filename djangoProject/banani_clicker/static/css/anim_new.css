@@ -1,0 +1,165 @@
+div.button {
+    background: linear-gradient(to right, #FFFFFF, #FFFC5E);
+    width: 350px;
+    height: 350px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s ease-in-out;
+    user-select: none;
+}
+
+#myButton::after{
+    content: "";
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+
+.button_scale {
+    -webkit-transform: scale(0.94);
+     transform: scale(0.94);
+ }
+
+.glow-on-hover {
+    width: 160px;
+    height: 45px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(to right, #C5C5C5 0%, #727272 60%);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    font-size: 1.8rem;
+    border-radius: 28px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 4px black;
+}
+
+.glow-on-hover a {
+    text-decoration: none;
+    display: block;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 28px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #C5C5C5 0%, #727272 60%);
+    left: 0;
+    top: 0;
+    border-radius: 28px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.glow {
+    width: 160px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(to right, #D4FF00 0%, #000000 100%);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    font-size: 1.8rem;
+    border-radius: 28px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 4px black;
+}
+
+.glow a {
+    text-decoration: none;
+    display: block;
+}
+
+.glow img {
+    margin-left: 10px;
+}
+
+.glow:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 28px;
+}
+
+.glow:active {
+    color: #000
+}
+
+.glow:active:after {
+    background: transparent;
+}
+
+.glow:hover:before {
+    opacity: 1;
+}
+
+.glow:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #D4FF00 0%, #000000 100%);
+    left: 0;
+    top: 0;
+    border-radius: 28px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}

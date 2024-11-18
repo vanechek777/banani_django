@@ -1,0 +1,90 @@
+html {
+    background-image: url(../img/images.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+h1.Zag1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: 'Avantgarde', 'TeX Gyre Adventor', 'URW Gothic L', sans-serif;
+
+}
+div.zagolovki {
+    background: rgba(255, 255, 255);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    width: 700px;
+    margin: 50 auto;
+    border-radius: 60px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.418);
+}
+
+div.main_inf {
+    border-radius: 60px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.418);
+    background: rgba(255, 255, 255);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width:  00%;
+    margin: 0 50px 0 50px;
+    height: 100%;
+
+}
+
+table.table1 {
+    width: 1000px;
+}
+
+h1.inside_text {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: "misha1";
+    font-size: 1.8em;
+}
+
+
+
+body {
+padding: 0px;
+margin: 0px;
+}
+
+div.blocks{
+  display: flex;
+  width: 100%;
+  justify-content: center ;
+  vertical-align: center;
+
+}
+
+div.blocks div{
+    justify-content: center;
+    margin: 0 50px;
+    background: linear-gradient(to right, #B1B1B1 0%, #272727 100%);
+    border-radius: 10%;
+    width: 400px;
+    height: 400px;
+    align-content: center;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+div.blocks div:hover{
+    transition: all 0.4s ease-in-out;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.418);
+}
+
+
+div.blocks img {
+    margin-top: 20px;
+}
+

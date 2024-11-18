@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="Russian">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}" type="text/css"> 
+    <link rel="stylesheet" href="{% static 'css/PB.css' %}" type="text/css">
+    <link rel="stylesheet" href='{% static "css/sripts.js" %}' type="text/css">
+    <link rel="preload" href='bebas/bebas/BebasNeueCyrillic.woff2' as="font" type="font/woff2" crossorigin>
+    <script src="{% static 'css/sripts.js' %}"></script>
+    <title> BananaCombat 🍌</title>
+</head>
+    <header style="width: 100%; height: 100px">
+        <div style="width: 225px; height: 77px;"></div>
+        <div class="main_zag">
+            <div class="glow-on-hover" style="background: none">
+                <a style="background: none;">Главная</a>
+            </div>
+            <div class="circle_main">
+                <img src="{% static 'img/бабани1.png' %}" width="50px" height="50px" alt="banana">
+            </div>
+            <div>
+            <a href="about.html" style="text-decoration: none;">
+            <div class="glow-on-hover">
+                Об игре
+            </div></a>
+        </div>
+        </div>
+        <div class='user__block' style="width: 200px; height: 70px; align-items: center; display: flex; border-radius: 25px; background: #272727; justify-content: center;">
+            <div class="circle2" style="width: 50px; height: 50px; display: flex; justify-content: center; flex-direction: row; background: #727272;"><img src="{{ user_pic }}" width="50px" height="50px" style="border-radius: 100%" alt="user"></div>
+            <a style="font-size: 1.5rem; margin-left: 20px">{{ user_name }}</a>
+{#            <img src="{% static 'img/знавыхода.png'%}" style="width: 28px; height: 28px; margin-left: 24px;" alt="">#}
+        </div>
+    </header>
+<body style="display: flex; flex-direction: column; align-content: center; margin: 0 0 0 0;">
+    <div style="justify-content: center;">
+        <div style="align-items: center; height: 550px; margin-top: 2%">
+            <div class="circle circle_about" style="margin-left: 0">
+                <img src="{% static 'img/бабани1.png'%}" width="451px" height="451px" style="display: flex;" alt="">
+            </div>
+        <div style="flex-direction: column;">
+            <div class="mp_text">
+                <a style="font-size: 7rem; margin-bottom: 30px; text-shadow: none">БАНАНИ КЛИКЕР</a>
+            </div>
+        <div style="justify-content: space-between; display: flex; width: 668px; margin-left: 40px">
+            <div style="width: 334px">
+                <a href="{% url 'play' %}" style="text-decoration: none;">
+                    <div class="glow" style="width: 188px; height: 50px; margin: 0"><a href="{% url 'play' %}">ИГРАТЬ<img src="{% static 'img/Polygon 1.png' %}" width="25px" height="25px" alt=""></a></div>
+                </a>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+<a href="{% url 'about' %}" style="text-decoration: none; display: flex; align-content: center; align-items: center; justify-content: center; position: sticky">
+    <div class="glow-on-hover" style="width: 120px; height: 40px; margin-left: 20px; font-size: 2rem;">
+        О НАС
+    </div>
+</a>
+</body>
+</html>

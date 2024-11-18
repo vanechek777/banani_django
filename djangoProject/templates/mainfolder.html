@@ -1,0 +1,339 @@
+{% load mathfilters %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="Russian">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}" type="text/css"> 
+    <link rel="stylesheet" href="{% static 'css/PB.css' %}" type="text/css">
+    <link rel="stylesheet" href='{% static "css/sripts.js" %}' type="text/css">
+    <link rel="preload" href='bebas/bebas/BebasNeueCyrillic.woff2' as="font" type="font/woff2" crossorigin>
+    <script src="{% static 'css/sripts.js' %}"></script>
+    <title> BananaCombat 🍌</title>
+</head>
+    <header style="width: 100%; height: 100px">
+        <div style="width: 225px; height: 77px;"></div>
+        <div class="main_zag">
+            <div class="glow-on-hover" style="background: none">
+                <a style="background: none;">Главная</a>
+            </div>
+            <div class="circle_main">
+                <img src="{% static 'img/бабани1.png' %}" width="50px" height="50px" alt="banana">
+            </div>
+            <div>
+            <a href="about.html" style="text-decoration: none;">
+            <div class="glow-on-hover">
+                Об игре
+            </div></a>
+        </div>
+        </div>
+        <div class='user__block' style="width: 200px; height: 70px; align-items: center; display: flex; border-radius: 25px; background: #272727; justify-content: center;">
+            <div class="circle2" style="width: 50px; height: 50px; display: flex; justify-content: center; flex-direction: row; background: #727272;"><img src="{{ user_pic }}" width="50px" height="50px" style="border-radius: 100%" alt="user"></div>
+            <a style="font-size: 1.5rem; margin-left: 20px">{{ user_name }}</a>
+{#            <img src="{% static 'img/знавыхода.png'%}" style="width: 28px; height: 28px; margin-left: 24px;" alt="">#}
+        </div>
+    </header>
+<body style="display: flex; flex-direction: column; align-content: center; margin-top: 8px;">
+
+    <button style="background: none; border: none; padding: 0; cursor: pointer" onclick="closePopup()">
+        <div class="behind__popup">
+            
+        </div>
+    </button>
+    
+    <div class="skill1__popup" style="width: 400px; height: 600px; background: #272727">
+        <div style="color: white; background: linear-gradient(to right, #FFFffE 0%, #FFF200 100%); border-radius: 20px; width: 80%; height: 50%; display: flex; align-items: center; justify-content: center;"><img src="{% static 'img/skills_photo/гориллп 1.png' %}" width="120px" height="180px"></div>
+        <a style="font-size: 3rem; margin-top: 20px;">Banana Shake</a>
+        <a style="font-size: 18px; margin-top: 20px; font-family: 'Segoe MDL2 Assets', sans-serif">Это твое начало на пути к истинному держателю бананий</a>
+        <div style="display: flex; flex-direction: row-reverse; width: 80%; height: 48px; margin-top: 40px; align-content: center; align-items: center">
+            <button style="background: none; border: none; padding: 0; cursor: pointer; width: 50%;" class="buy_card1"><div class="buy__card" style="background: linear-gradient(to right, #00ff2b 0%, #00600d 100%); width: 100%; height: 48px; border-radius: 15px; display: flex; align-content: center; align-items: center; justify-content: center; font-size: 2rem"><a>КУПИТЬ</a><img src="{% static 'img/icons8-тележка-48.png' %}" width="32px" height="31px" style="margin-left: 5px; margin-top: 1px"></div></button>
+            <div style="display: flex; align-items: center">
+                <a style="font-size: 1.5rem; margin-top: 2px">+10</a>
+                <img src="{% static 'img/icons8-вверх-50.png' %}" width="30px" height="30px">
+                <a style="font-size: 1.5rem; margin-top: 2px; margin-right: 5px; margin-left: 1px">|</a>
+                <a style="font-size: 1.5rem; margin-top: 2px; margin-right: 3px">100</a>
+                <div class="circle" style="margin-right: 20px"><img src="{% static 'img/бабани1.png'%}"></div>
+                <script>
+                    const csrftoken = getCookie('csrftoken');
+                    const button = document.getElementById('myButton');
+                    button.addEventListener('mousedown', function() {
+                            fetch('#', {
+                                method: 'POST',
+                                headers: {'X-CSRFToken': csrftoken, 'skill': 1},
+                            })
+                            button.classList.add('button_scale'); // Добавляем класс при нажатии
+                        });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="skill2__popup"></div>
+    <div class="skill3__popup"></div>
+    <div class="skill4__popup"></div>
+    <div class="skill5__popup"></div>
+    <div class="skill6__popup"></div>
+    
+    <div class="flextog">
+        <div class="leftpart">
+            <div>
+                <div class="User_icon">
+                    <img class="User_icon" style="background: none; border-radius: 25%" src="{{ user_pic }}">
+                </div>
+                <div class="User_text">
+                    <a>{{ user_name }}</a>
+                </div>
+            </div>
+            <div style="justify-content: center;">
+                <div style="display: flex;">
+                    <div class="info_block">
+                        <div>
+                            <div class="circle"><img src="{% static 'img/бабани1.png'%}"></div>
+                            <a>/сек:</a>
+                        </div>
+                        <div><a>{{ per_sec }}</a></div>
+                    </div>
+                    <div class="info_block">
+                        <div>
+                            <div class="circle"><img src="{% static 'img/бабани1.png'%}"></div>
+                            <a id="till_level"> ДО УР {{ lvl|add:1 }}:</a>
+                        </div>
+                        <div id="till_next"><a>{{ till_next|sub:total }}</a></div>
+                    </div>
+                    <div class="info_block">
+                        <div>
+                            <a>МЕСТО В РЕЙТИНГЕ:</a>
+                        </div>
+                        <div><a>{{ top }}</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="already_done">
+                <a>УЖЕ НАКЛИКАНО:</a>
+            </div>
+            <div class="summary" id="summary">
+                <a>{{ total }}</a>
+            </div>
+            <div class="container">
+                <div class="progress-bar__container">
+                  <div class="progress-bar" id="progress" style="left: {{ prog_bar }}%">
+                  </div>
+                </div>
+                </div>
+                <div style="display: flex; justify-content: center; margin-top: 15px; height: 350px;">
+{#                <form method="POST">#}
+                    {% csrf_token %}
+{#                    <label class="add_points" style="display: none">#}
+{#                        <input type="radio" id="add_point" name="add_point" required value="add_point" checked/>#}
+{#                    </label>#}
+                    <button style="border: none; background: none; cursor: pointer" type="button"><div class="button js-button" id="myButton"><img src="{%  static 'img/бабани1.png'%}" width="80%" height="80%"></div></button>
+                    <script>
+                        async function elementUpdate(selector) {
+                            try {
+                                var html = await (await fetch(location.href)).text();
+                                var newdoc = new DOMParser().parseFromString(html, 'text/html');
+                                document.querySelector(selector).outerHTML = newdoc.querySelector(selector).outerHTML;
+                                console.log('Элемент '+selector+' был успешно обновлен');
+                                return true;
+                            } catch(err) {
+                                console.log('При обновлении элемента '+selector+' произошла ошибка:');
+                                console.dir(err);
+                                return false;
+                            }
+                        }
+                        function getCookie(name) {
+                            let cookieValue = null;
+                            if (document.cookie && document.cookie !== '') {
+                                const cookies = document.cookie.split(';');
+                                for (let i = 0; i < cookies.length; i++) {
+                                    const cookie = cookies[i].trim();
+                                    // Does this cookie string begin with the name we want?
+                                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                        break;
+                                    }
+                                }
+                            }
+                            return cookieValue;
+                        }
+                        const csrftoken = getCookie('csrftoken');
+                        const button = document.getElementById('myButton');
+
+                        button.addEventListener('mousedown', function() {
+                            fetch('#', {
+                                method: 'POST',
+                                headers: {'X-CSRFToken': csrftoken, 'click': 1},
+                            })
+                            button.classList.add('button_scale'); // Добавляем класс при нажатии
+                            elementUpdate('div#till_next')
+                            elementUpdate('div#progress')
+                            elementUpdate('a#till_level')
+                        });
+
+                        button.addEventListener('mouseup', function() {
+                            elementUpdate('div#summary')
+                            button.classList.remove('button_scale'); // Убираем класс при отжатии
+                        });
+                    </script>
+              </div>
+              <div style="justify-content: flex-end; margin-right: 30px; font-size: 36px;">
+              <div class="circle" style="width: 44px; height: 44px;"><img src="{% static 'img/бабани1.png'%}"></div>
+              <div>
+                <a> 1000/2500</a>
+              </div>
+            </div>
+        </div>
+        <div class="rightpart">
+            <div>
+                <a>БУСТЕРЫ</a>
+            </div>
+            <div class="skills">
+                <div class="row_skills">
+                    <button style="border: none; background: none; cursor: pointer; padding: 0" onclick="openPopup_1()">
+                        <div class="card_skills">
+                            <a>BANANA SHAKE</a>
+                            <a style="font-size: 0.8rem">LvL 0/10</a>
+                            <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                            <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                        </div>
+                    </button>
+                    <button style="border: none; background: none; cursor: pointer; padding: 0" onclick="openPopup_2()">
+                        <div class="card_skills" style="margin-left: 30px; margin-right: 30px; display: flex; justify-content: space-between;">
+                            <a style="margin-top: 5px;">you look lonely</a>
+                            <img src="{% static 'img/skills_photo/гослинг 1.png'%}">
+                            <a style="margin-bottom: 5px;"><span style="color: #6AF34E;">+10 </span>/1200</a>
+                        </div>
+                    </button>
+                    <button style="border: none; background: none; cursor: pointer; padding: 0" onclick="openPopup_3()">
+                        <div class="card_skills" style="display: flex; justify-content: space-between;">
+                            <a style="margin-top: 5px;">BANANA KITTEN</a>
+                            <img src="{% static 'img/skills_photo/Original 1.png'%}" width="95px" height="147px">
+                            <a style="margin-bottom: 5px;"><span style="color: #6AF34E;">+10 </span>/1200</a>
+                        </div>
+                    </button>
+                </div>
+                <div class="row_skills">
+                    <button style="border: none; background: none; cursor: pointer; padding: 0" onclick="openPopup_4()">
+                        <div class="card_skills" style="display: flex; justify-content: space-between;">
+                            <a style="margin-top: 5px;">TONY</a>
+                            <img src="{% static 'img/skills_photo/sticker 1.png'%}" width="95px">
+                            <a style="margin-bottom: 5px;"><span style="color: #6AF34E;">+10 </span>/1200</a>
+                        </div>
+                    </button>
+                    <button style="border: none; background: none; cursor: pointer; padding: 0" onclick="openPopup_5()">
+                        <div class="card_skills" style="margin-left: 30px; margin-right: 30px; display: flex; justify-content: space-between;">
+                            <a style="margin-top: 5px;">TONY</a>
+                            <img src="{% static 'img/skills_photo/гепард 1.png'%}" width="95px" height="100px">
+                            <a style="margin-bottom: 5px;"><span style="color: #6AF34E;">+10 </span>/1200</a>
+                        </div>
+                    </button>
+                    <button style="border: none; background: none; cursor: pointer; padding: 0" onclick="openPopup_6()">
+                        <div class="card_skills" style="display: flex; justify-content: space-between;">
+                            <a style="margin-top: 5px;">RICHARD</a>
+                            <img src="{% static 'img/skills_photo/петух 1.png'%}" width="95px">
+                            <a style="margin-bottom: 5px;"><span style="color: #6AF34E;">+10 </span>/1200</a>
+                        </div>
+                    </button>
+                </div>
+                <div class="row_skills">
+                    <div class="card_skills">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                    <div class="card_skills" style="margin-left: 30px; margin-right: 30px;">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                    <div class="card_skills">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                </div>
+                <div class="row_skills">
+                    <div class="card_skills">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                    <div class="card_skills" style="margin-left: 30px; margin-right: 30px;">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                    <div class="card_skills">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                </div>
+                <div class="row_skills">
+                    <div class="card_skills">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                    <div class="card_skills" style="margin-left: 30px; margin-right: 30px;">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                    <div class="card_skills">
+                        <a>BANANA SHAKE</a>
+                        <img src="{% static 'img/skills_photo/гориллп 1.png'%}" width="95px" height="147px">
+                        <a><span style="color: #6AF34E;">+10 </span>/1200</a>
+                    </div>
+                </div>
+                <script>
+                    function openPopup_1() {
+                      var popup = document.querySelector('.skill1__popup');
+                      var bg_popup = document.querySelector('.behind__popup');
+                      popup.classList.add('active');
+                      bg_popup.classList.add('active');
+                    }
+                    function openPopup_2() {
+                      var popup = document.querySelector('.skill2__popup');
+                      var bg_popup = document.querySelector('.behind__popup');
+                      popup.classList.add('active');
+                      bg_popup.classList.add('active');
+                    }
+                    function openPopup_3() {
+                      var popup = document.querySelector('.skill3__popup');
+                      var bg_popup = document.querySelector('.behind__popup');
+                      popup.classList.add('active');
+                      bg_popup.classList.add('active');
+                    }
+                    function openPopup_4() {
+                      var popup = document.querySelector('.skill4__popup');
+                      var bg_popup = document.querySelector('.behind__popup');
+                      popup.classList.add('active');
+                      bg_popup.classList.add('active');
+                    }
+                    function openPopup_5() {
+                      var popup = document.querySelector('.skill5__popup');
+                      var bg_popup = document.querySelector('.behind__popup');
+                      popup.classList.add('active');
+                      bg_popup.classList.add('active');
+                    }
+                    function openPopup_6() {
+                      var popup = document.querySelector('.skill6__popup');
+                      var bg_popup = document.querySelector('.behind__popup');
+                      popup.classList.add('active');
+                      bg_popup.classList.add('active');
+                    }
+                    function closePopup() {
+                        let list = ['skill1__popup', 'skill2__popup', 'skill3__popup', 'skill4__popup', 'skill5__popup', 'skill6__popup', 'behind__popup']
+                        for (let i = 0; i < list.length + 1; i++) {
+                            var closer = document.querySelector('.active');
+                            closer.classList.remove('active')
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

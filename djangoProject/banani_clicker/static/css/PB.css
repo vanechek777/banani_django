@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .progress-bar__container {
+    width: 90%;
+    background-color: #FFFFFF;
+    height: 20px;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+    will-change: transform;
+    box-shadow: 4px 4px 15px #000000;
+  }
+  
+  .progress-bar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to right, #FFFFFF 50%, #FFE100 100%);
+    top:0;
+    bottom: 0;
+    left: -50%;
+    border-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color: white;
+    font-family: sans-serif;
+  }
+  
+  .progress-bar__text {
+    display: block;
+  }
+  
