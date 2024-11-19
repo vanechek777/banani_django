@@ -25,3 +25,5 @@ class CardHoldings(models.Model):
     user_id = models.IntegerField()
     card_id = models.IntegerField()
     card_lvl = models.IntegerField(default=0)
+    card_new_cost = models.IntegerField()
+    card_new_pnt_per_sec = models.IntegerField()
